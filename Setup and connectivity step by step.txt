@@ -1,0 +1,127 @@
+ #// vscode connectivity to github account
+	STEP BY STEP
+1. Go to left side profile icon 
+    -->1 click to sync link 
+    --->2 asking logging with microsoft or github 
+    -->3 select github connected userID then after connection to github account
+    --->4 Make .gitignore file and add node_modules in it before run git init command
+    --->5 go to a particular/project folder and run git init command
+    -->6 then run git add . command = jisse hoga ki jitne modification huye hai folder ya file mein vo sab staged
+	area par aajayge commit hone ke liye
+	& other way to just click on the + icon button.
+    -->7 then to commit all the files use command 
+			git commit -a -m 'message'
+			-a -- means all the files
+			-m -- means message of commit
+    -->8 before commit add user.name and user.email in gitbash using command line config
+    -->9 after commit --- build an connection b/w vs code to github repository using remote url link on github repository.
+         go to source control on left side in vscode 3dots --> add remote --> paste url link of github repository
+         OR
+	Add remote name ORIGIN
+	use this command --- git remote add origin https://github.com/namanjainofficial/Basic_Setup.git
+   	then use this cmd --- git branch -M main - make new branch main
+	then push the files --  git push -u origin main
+        
+        git remote add origin https://github.com/namanjainofficial/setup.git
+        git branch -M main
+        git push -u origin main
+
+	KEYWORD SIGN
+	M - means modified files
+	U - means new OR updated file
+	A - means file add into staged area.  
+     -->10 Want to commit again repeat from step-6	
+
+
+
+#//How to open vscode without using right clickon it.
+       --> click on path write -cmd --> on cmd promt write -code .
+
+
+
+
+#//cloudary Image storage of web App on NodeJs
+
+	model datatypes - avatar: [
+    				public_id: {
+    					type: String,
+      					required: true,
+    					    },
+   				url: {
+      					type: String,
+      					required: true,
+   				     },
+  				  ]
+       
+ 	
+# ErrorHandling in Nodejs
+	1)Error message and statusCode
+	2) catch async error
+	3)server crash handling
+	4) database error -- id error
+
+
+#// how to sequelize migrate database with nodejs
+	--> npm install --save sequelize
+	--> npm install -g sequelize-cli //Api request
+	--> npm install --save mysql2
+	--> sequelize init   // folder structure
+	--> Edit the config.json to config.js and also change in index.js filename to json--js
+	--> Edit the details of database config.
+	--> create model in model files as per databasesField
+	--> to connect the database with sequelize -- sequelize.authenticate({ force:true });
+	--> migration file is automatically create when we make model -- change table name in lowercase
+	--> run migrate command -- sequelize db:migrate
+
+# expire session 
+	--> new date( date.now() + process.env.COOKIE-EXPIRE*24*60*60*1000)
+
+
+#how to add file photo video on cloudinary using multer in nodejs
+	-->To take a const imageURL = req.file from the user in file form hume multer ki need hogi -- npm i --save multer contain the format of 
+		photo/ video files handler
+	-->const multer = require('multer')
+		app.use(multer().single('name of the input type use on frontend')) --for single file use single --for more then one use many
+	--> use app.use(multer({ dest: 'images'}) -- to store the upload files in images folder or to store destination
+		of the all the image from frontend user.
+	--> Or use multer file in utils folder
+		--import the multer -- make a storage variable -const storage =multer.memoryStorage();
+		--const singleUpload = multer({storage}).single({'or file variable name'});
+		--export singleUpload;
+		--use on routes folder for APIs.
+	--> In cloudinary, .Env --CLOUDINARU_CLIENT_NAME=, CLOUDINARY_CLIENT_API=, CLOUDINARY_CLIENT_SECRET=
+		In index.js file config the cloudinary,
+		const cloudinary = require("cloudinary");
+		cloudinary.config({
+			  cloud_name: process.env.CLOUDINARY_NAME,
+ 			  api_key: process.env.CLOUDINARY_API_KEY,
+  			  api_secret: process.env.CLOUDINARY_API_SECRET,
+				 });
+	--> step1: import cloudinary in index.js and config that see above.
+	--> 
+	
+# SQL Queries
+	--> SELECT *, col_Name(use also) FROM tableName;
+	--> WHERE CONDITION means column_Name
+	--> ORDER BY column_NAME ASC/DESC
+	--> LIMIT number of result showOn
+	--> OFFSET 
+	-->Select query with INNER JOIN on multiple tables
+		SELECT column, another_table_column, …
+		FROM mytable
+		INNER JOIN another_table 
+		    ON mytable.id = another_table.id
+		WHERE condition(s)
+		ORDER BY column, … ASC/DESC
+		LIMIT num_limit OFFSET num_offset;
+		GROUP BY column;
+#Order of execution of a Query#
+SELECT DISTINCT column, AGG_FUNC(column_or_expression), …
+FROM mytable
+    JOIN another_table
+      ON mytable.column = another_table.column
+    WHERE constraint_expression
+    GROUP BY column
+    HAVING constraint_expression
+    ORDER BY column ASC/DESC
+    LIMIT count OFFSET COUNT;
