@@ -100,7 +100,7 @@
 	--> step1: import cloudinary in index.js and config that see above.
 	--> 
 	
-# SQL Queries
+# SQL Queries / order
 	--> SELECT *, col_Name(use also) FROM tableName;
 	--> WHERE CONDITION means column_Name
 	--> ORDER BY column_NAME ASC/DESC
